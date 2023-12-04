@@ -15,4 +15,8 @@ Here are some details about my setup:
 
 ## preview
 
+![](./imgs/image-20231204175053.png)
 
+![](./imgs/image-20231204175142.png)
+
+![](./imgs/image-20231204180020.png)
