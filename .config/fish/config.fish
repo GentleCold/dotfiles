@@ -19,7 +19,7 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 # common
 alias v="nvim"
 alias r="ranger"
-alias j="nvim ~/notes"
+alias j="cd ~/notes && nvim"
 
 # pacman
 alias i="sudo pacman -S"
@@ -40,9 +40,13 @@ alias et="xinput set-prop \"ELAN0662:00 04F3:30BC Touchpad\" \"Device Enabled\" 
 alias dt="xinput set-prop \"ELAN0662:00 04F3:30BC Touchpad\" \"Device Enabled\" 0"
 
 # conda activate/deactivate
-alias cod="conda deactivate"
-alias coa="conda activate"
+# alias cod="conda deactivate"
+# alias coa="conda activate"
+alias pyl="ls ~/.python_env/"
 
 # translation
 alias tz="trans :zh"
 alias te="trans :en"
+
+# tidy downloads
+alias td="sh ~/.config/tidy.sh"

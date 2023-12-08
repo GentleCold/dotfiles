@@ -5,13 +5,23 @@ Here are some details about my setup:
     WM : bspwm
     Shell : fish 
     Terminal : alacritty 
-    Editor : lazyvim
+    Editor : neovim/neovide
     Panel : polybar
     Compositor : picom
     Notify Daemon : dunst
     Application Launcher : rofi
     File Manager : ranger
     Wallpaper Manager : feh
+
+## install
+
+edit dotfiles var in `install.sh`
+
+run: `sh install.sh` ( if you trust me
+
+it just create soft link and back up if the dir is existing
+
+you need more efforts to config before using them completely
 
 ## preview
 

@@ -40,4 +40,4 @@ colors:
     - { index: 17, color: '0xdb4b4b' }
 
 window:
-  opacity: 0.8
+  opacity: 0.9
