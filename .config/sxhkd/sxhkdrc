@@ -147,7 +147,7 @@ XF86AudioMute
 
 # clipboard
 super + v
-  clipmenu
+  copyq toggle
 
 #
 # hide/unhide window
@@ -160,3 +160,7 @@ super + shift + d
 # hide/unhide all windows
 super + d
     bspc query -N -n .local.window | xargs -I ID bspc node ID -g hidden
+
+# Rotate tree
+super + shift + {n,p}
+    bspc node @/ -C {forward,backward}

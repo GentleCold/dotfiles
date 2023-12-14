@@ -17,6 +17,7 @@ configs=(
     ranger
     rofi
     sxhkd
+    scripts 
     tmux
 )
 

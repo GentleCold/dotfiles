@@ -49,4 +49,7 @@ alias tz="trans :zh"
 alias te="trans :en"
 
 # tidy downloads
-alias td="sh ~/.config/tidy.sh"
+alias td="sh ~/.config/scripts/tidy.sh"
+
+# clean trash
+alias ct="rm -r ~/trash/*"

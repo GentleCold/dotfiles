@@ -3,7 +3,7 @@ tabspaces: 2
 font:
   size: 9
   normal:
-    family: Maple Mono SC NF
+    family: Maple Mono NF
     style: Bold
 
 # TokyoNight Alacritty Colors
@@ -39,5 +39,5 @@ colors:
     - { index: 16, color: '0xff9e64' }
     - { index: 17, color: '0xdb4b4b' }
 
-window:
-  opacity: 0.9
+# window:
+#   opacity: 0.9
