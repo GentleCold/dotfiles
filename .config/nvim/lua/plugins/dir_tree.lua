@@ -55,6 +55,23 @@ return {
 					end,
 				},
 			},
+			default_component_configs = {
+				git_status = {
+					symbols = {
+						-- Change type
+						added = "✚",
+						deleted = "",
+						modified = "",
+						renamed = "󰁕",
+						-- Status type
+						untracked = "",
+						ignored = "",
+						unstaged = "󰄱",
+						staged = "",
+						conflict = "",
+					},
+				},
+			},
 			auto_clean_after_session_restore = true, -- Automatically clean up broken neo-tree buffers saved in sessions
 		})
 	end,
