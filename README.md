@@ -3,8 +3,8 @@
 Here are some details about my setup:
 
     WM : bspwm
-    Shell : fish 
-    Terminal : alacritty 
+    Shell : fish
+    Terminal : alacritty
     Editor : neovim/neovide
     Panel : polybar
     Compositor : picom
@@ -23,13 +23,13 @@ My ~~awesome~~(still need more efforts) neovim configurations, built from zero!
 
 ## install
 
-edit dotfiles var in `install.sh`
+Edit dotfiles var in `install.sh`
 
-run: `sh install.sh` ( if you trust me
+Run: `sh install.sh` ( if you trust me
 
-it just back up if the dir is existing and create soft link
+It will back up your configurations if which is existing and create soft links then
 
-you need more efforts to configurations before using them completely
+You need more efforts to configurations before using them completely
 
 ## preview
 
@@ -38,4 +38,3 @@ you need more efforts to configurations before using them completely
 ![](./imgs/image-20231204175053.png)
 
 ![](./imgs/image-20231204175142.png)
-

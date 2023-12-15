@@ -21,7 +21,7 @@ return {
         style = "darker",
       })
       require("onedark").load()
-    end
+    end,
   },
   -- {
   --   "folke/tokyonight.nvim",

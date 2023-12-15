@@ -10,28 +10,26 @@ require("lazy_init")
 
 -- neovide
 if vim.g.neovide then
-	-- cursor animation
-	vim.g.neovide_cursor_vfx_mode = "pixiedust"
+  -- cursor animation
+  vim.g.neovide_cursor_vfx_mode = "pixiedust"
 
-	-- font
-	vim.o.guifont = "Maple Mono SC NF:h9:b"
-	-- vim.opt.linespace = -1
-	-- vim.g.neovide_transparency = 0.9
-	vim.g.neovide_hide_mouse_when_typing = true
-	-- vim.g.neovide_profiler=true
+  -- font
+  vim.o.guifont = "Maple Mono SC NF:h9:b"
+  vim.opt.linespace = -1
+  -- vim.g.neovide_transparency = 0.9
+  vim.g.neovide_hide_mouse_when_typing = true
+  -- vim.g.neovide_profiler=true
 
-	-- reduce performance when idle
-	vim.g.neovide_refresh_rate_idle = 5
+  -- reduce performance when idle
+  vim.g.neovide_refresh_rate_idle = 5
 end
 
-vim.api.nvim_command("highlight WildMenu ctermfg=yellow ctermbg=blue guifg=yellow guibg=blue")
 -- Customization for Pmenu
--- vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#393d4e", fg = "NONE" })
--- vim.api.nvim_set_hl(0, "Pmenu", { fg = "#C5CDD9", bg = "#24283b" })
-
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#393d4e", fg = "NONE" })
-vim.api.nvim_set_hl(0, "Pmenu", { fg = "#C5CDD9", bg = "#24283b" })
+vim.api.nvim_set_hl(0, "Pmenu", { fg = "#C5CDD9", bg = "#181b20" })
 
+-- vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#C5CDD9", fg = "NONE" })
+-- vim.api.nvim_set_hl(0, "Pmenu", { fg = "#C5CDD9", bg = "#24283b" })
 vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#7E8294", bg = "NONE", strikethrough = true })
 vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#82AAFF", bg = "NONE", bold = true })
 vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#82AAFF", bg = "NONE", bold = true })

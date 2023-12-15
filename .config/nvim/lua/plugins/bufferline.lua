@@ -1,17 +1,19 @@
 return {
   {
-    'romgrk/barbar.nvim',
+    "romgrk/barbar.nvim",
     event = "BufEnter",
-    init = function() vim.g.barbar_auto_setup = false end,
+    init = function()
+      vim.g.barbar_auto_setup = false
+    end,
     opts = {
       sidebar_filetypes = {
-        ['neo-tree'] = { text = 'neo-tree', event = 'BufWipeout' },
+        ["neo-tree"] = { text = "neo-tree", event = "BufWipeout" },
       },
-      focus_on_close = 'previous',
+      focus_on_close = "previous",
       icons = {
         -- Configure the base icons on the bufferline.
         -- Valid options to display the buffer index and -number are `true`, 'superscript' and 'subscript'
-        button = 'x',
+        button = "x",
         -- Enables / disables diagnostic symbols
         -- diagnostics = {
         --   [vim.diagnostic.severity.ERROR] = { enabled = true },
@@ -19,19 +21,24 @@ return {
         --   [vim.diagnostic.severity.INFO] = { enabled = true },
         --   [vim.diagnostic.severity.HINT] = { enabled = true },
         -- },
-        pinned = { button = '󰐃', filename = true },
+        -- gitsigns = {
+        -- 	added = { enabled = false, icon = "+" },
+        -- 	changed = { enabled = true, icon = "~" },
+        -- 	deleted = { enabled = false, icon = "-" },
+        -- },
+        pinned = { button = "󰐃", filename = true },
       },
     },
-    version = '^1.0.0', -- optional: only update when a new 1.x version is released
+    version = "^1.0.0", -- optional: only update when a new 1.x version is released
     config = function(_, opts)
-      require('barbar').setup(opts)
-    end
+      require("barbar").setup(opts)
+    end,
   },
   {
     "tiagovla/scope.nvim",
     event = "BufEnter",
     config = function()
       require("scope").setup({})
-    end
-  }
+    end,
+  },
 }

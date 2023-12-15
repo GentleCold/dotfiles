@@ -42,11 +42,29 @@ map.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 -- Buffers
 map.set("n", "<S-h>", "<cmd>BufferPrevious<cr>", { desc = "Prev buffer" })
 map.set("n", "<S-l>", "<cmd>BufferNext<cr>", { desc = "Next buffer" })
-map.set('n', '<leader>bh', '<Cmd>BufferMovePrevious<CR>')
-map.set('n', '<leader>bl', '<Cmd>BufferMoveNext<CR>')
+map.set("n", "<leader>bh", "<Cmd>BufferMovePrevious<CR>")
+map.set("n", "<leader>bl", "<Cmd>BufferMoveNext<CR>")
 map.set("n", "<leader>bd", "<cmd>BufferClose<cr>", { desc = "Delete buffer" })
-map.set("n", "<leader>bp", "<cmd>BufferPin<cr>", { desc = "Delete buffer" })
+map.set("n", "<leader>bp", "<cmd>BufferPin<cr>", { desc = "Pin buffer" })
 map.set("n", "<leader>bD", "<cmd>BufferCloseAllButPinned<cr>", { desc = "Delete all buffers" })
+
+-- Diagnostic
+local diagnostic_goto = function(next, severity)
+  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+  severity = severity and vim.diagnostic.severity[severity] or nil
+  return function()
+    go({ severity = severity })
+  end
+end
+
+map.set("n", "<space>ft", vim.diagnostic.setloclist)
+map.set("n", "<leader>k", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+map.set("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
+map.set("n", "[d", diagnostic_goto(false), { desc = "Prev Diagnostic" })
+map.set("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
+map.set("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
+map.set("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
+map.set("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 
 -- Clear search with <esc>
 map.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
@@ -68,6 +86,7 @@ map.set("n", "<leader><tab>d", "<cmd>Neotree close<cr><cmd>tabclose<cr>", { desc
 
 -- UI
 map.set("n", "<leader>ul", "<cmd>Lazy<cr>", { desc = "Lazy" })
+map.set("n", "<leader>um", "<cmd>Mason<cr>", { desc = "Mason" })
 
 -- Neotree
 map.set("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neotree" })

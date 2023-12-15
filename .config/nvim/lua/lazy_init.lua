@@ -18,11 +18,11 @@ require("lazy").setup("plugins", {
     lazy = true,
   },
   install = {
-    colorscheme = { "tokyonight" },
+    colorscheme = { "onedark" },
   },
   checker = { enabled = true }, -- automatically check for plugin updates
   ui = {
-    border = "double",
+    -- border = "single",
     icons = {
       task = " ",
     },
