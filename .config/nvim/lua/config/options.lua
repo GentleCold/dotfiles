@@ -38,7 +38,7 @@ opt.cursorline = true -- highlight the current line
 opt.wrap = false -- do not wrap lines
 
 opt.updatetime = 250
-opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete
+-- opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete
 
 -- opt.wildmenu = true -- show list instead of just completing
 -- opt.shortmess = vim.o.shortmess .. 'c' -- don't give |ins-completion-menu| messages

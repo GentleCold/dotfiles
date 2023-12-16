@@ -1,13 +1,14 @@
 return {
   "hrsh7th/nvim-cmp",
   version = false, -- last release is way too old
-  event = "InsertEnter",
+  event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "saadparwaiz1/cmp_luasnip",
-    "onsails/lspkind.nvim"
+    "onsails/lspkind.nvim",
+    "hrsh7th/cmp-cmdline",
   },
   opts = function()
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
@@ -31,10 +32,10 @@ return {
           winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
           col_offset = -3,
           side_padding = 0,
-          border = border "CmpDocBorder",
+          border = border("CmpDocBorder"),
         },
         documentation = {
-          border = border "CmpDocBorder",
+          border = border("CmpDocBorder"),
           winhighlight = "Normal:CmpDoc",
         },
       },
@@ -42,8 +43,8 @@ return {
       formatting = {
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
-          if vim.tbl_contains({ 'path' }, entry.source.name) then
-            local icon, hl_group = require('nvim-web-devicons').get_icon(entry:get_completion_item().label)
+          if vim.tbl_contains({ "path" }, entry.source.name) then
+            local icon, hl_group = require("nvim-web-devicons").get_icon(entry:get_completion_item().label)
             if icon then
               vim_item.kind = icon
               vim_item.kind_hl_group = hl_group
@@ -72,7 +73,7 @@ return {
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-e>"] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
@@ -95,12 +96,29 @@ return {
       source.group_index = source.group_index or 1
     end
     -- If you want insert `(` after select function or method item
-    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-    local cmp = require('cmp')
-    cmp.event:on(
-      'confirm_done',
-      cmp_autopairs.on_confirm_done()
-    )
+    local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+    local cmp = require("cmp")
+    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     require("cmp").setup(opts)
+
+    -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline({ "/", "?" }, {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = "buffer" },
+      },
+      -- native_menu = false,
+    })
+
+    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = "path" },
+      }, {
+        { name = "cmdline" },
+      }),
+      -- native_menu = false,
+    })
   end,
 }

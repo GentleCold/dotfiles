@@ -20,7 +20,7 @@ return {
           filetype_is_not = { "lua" },
         },
         write_all_buffers = false,
-        debounce_delay = 2000,
+        debounce_delay = 135,
       })
     end,
   },

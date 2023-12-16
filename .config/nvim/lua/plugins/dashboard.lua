@@ -1,14 +1,38 @@
 return {
-  'nvimdev/dashboard-nvim',
-  event = 'VimEnter',
+  "nvimdev/dashboard-nvim",
+  event = "VimEnter",
   config = function()
-    require('dashboard').setup {
+    require("dashboard").setup({
       -- config
-      theme = 'doom',
+      theme = "doom",
       config = {
+        header = {
+          "                                 ",
+          "                                 ",
+          "                                 ",
+          "                                 ",
+          "           ▄ ▄                   ",
+          "       ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄     ",
+          "       █ ▄ █▄█ ▄▄▄ █ █▄█ █ █     ",
+          "    ▄▄ █▄█▄▄▄█ █▄█▄█▄▄█▄▄█ █     ",
+          "  ▄ █▄▄█ ▄ ▄▄ ▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ",
+          "  █▄▄▄▄ ▄▄▄ █ ▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ █ ▄",
+          "▄ █ █▄█ █▄█ █ █ █▄█ █ █▄█ ▄▄▄ █ █",
+          "█▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █",
+          "    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█    ",
+          "                                 ",
+          "                                 ",
+          "                                 ",
+          "                                 ",
+        },
         center = {
-          { action = 'lua require("persistence").load()', icon = '  ', desc = 'Restore Session', key = 's'},
-          { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },
+          { action = "SessionManager load_session", icon = "  ", desc = "Select Session", key = "s" },
+          {
+            action = "Lazy",
+            desc = " Lazy",
+            icon = "󰒲 ",
+            key = "l",
+          },
         },
         footer = function()
           local stats = require("lazy").stats()
@@ -16,7 +40,7 @@ return {
           return { "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
         end,
       },
-    }
+    })
   end,
-  dependencies = { {'nvim-tree/nvim-web-devicons'}}
+  dependencies = { { "nvim-tree/nvim-web-devicons" } },
 }

@@ -32,19 +32,19 @@ return {
   --     style = "storm",
   --     transparent = false,
   --     styles = {
-  --       sidebars = "normal",
-  --       floats = "normal",
+  --       sidebars = "dark",
+  --       floats = "dark",
   --     },
-  --     on_colors = function(colors)
-  --       colors.border = "#565f89"
-  --       colors.bg_statusline = "#373b4e"
-  --       colors.border_highlight = "#c0caf5"
-  --     end
+  --     -- on_colors = function(colors)
+  --     --   colors.border = "#565f89"
+  --     --   colors.bg_statusline = "#373b4e"
+  --     --   colors.border_highlight = "#c0caf5"
+  --     -- end,
   --   },
   --   config = function(_, opts)
   --     require("tokyonight").setup(opts)
   --     vim.cmd([[colorscheme tokyonight]])
-  --   end
+  --   end,
   -- },
 }
 
