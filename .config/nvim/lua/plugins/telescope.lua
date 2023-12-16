@@ -7,21 +7,32 @@ return {
   },
   keys = {
     -- files
-    { "<leader>ff", "<cmd>Telescope find_files<cr>" },
-    { "<leader>fg", "<cmd>Telescope live_grep<cr>" },
-    { "<leader>fw", "<cmd>Telescope grep_string<cr>" },
+    { "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>" },
+    { "<leader>fg", "<cmd>Telescope live_grep hidden=true<cr>" },
+    { "<leader>fw", "<cmd>Telescope grep_string hidden=true<cr>" },
     { "<leader>fb", "<cmd>Telescope buffers<cr>" },
     { "<leader>fh", "<cmd>Telescope help_tags<cr>" },
 
     -- lsp
-    { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>" },
+    { "<leader>fs", "<cmd>Telescope treesitter<cr>" },
     -- { "gd", "<cmd>Telescope lsp_definitions<cr>" },
     -- { "gi", "<cmd>Telescope lsp_implementations<cr>" },
     -- { "gr", "<cmd>Telescope lsp_references<cr>" },
-    { "<leader>fT", "<cmd>Telescope diagnostics<cr>" },
+    { "<leader>fT", "<cmd>Telescope diagnostics hidden=false<cr>" },
   },
   tag = "0.1.5",
   config = function()
+    local telescopeConfig = require("telescope.config")
+
+    -- Clone the default Telescope configuration
+    local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
+
+    -- I want to search in hidden/dot files.
+    table.insert(vimgrep_arguments, "--hidden")
+    -- I don't want to search in the `.git` directory.
+    table.insert(vimgrep_arguments, "--glob")
+    table.insert(vimgrep_arguments, "!**/.git/*")
+
     local actions = require("telescope.actions")
     require("telescope").setup({
       extensions = {
@@ -41,6 +52,13 @@ return {
           n = {
             ["q"] = actions.close,
           },
+        },
+        vimgrep_arguments = vimgrep_arguments,
+      },
+      pickers = {
+        find_files = {
+          -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
         },
       },
     })
