@@ -90,7 +90,7 @@ return {
           },
           {
             function()
-              local linters = require("lint").get_running()
+              local linters = require("lint").get_running(0)
               if #linters == 0 then
                 return ""
               end

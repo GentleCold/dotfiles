@@ -164,3 +164,19 @@ super + d
 # Rotate tree
 super + shift + {n,p}
     bspc node @/ -C {forward,backward}
+
+# rotate the whole desktop
+super + shift + r
+    bspc node @/ -R 90
+
+# rotate the parent of current focused
+super + r
+    bspc node @parent -R 90
+
+# focus a floating window
+super + u
+    if [ "$(bspc query -N -n focused.floating)" ]; then \
+        bspc node -f last.tiled.local; \
+    else \
+        bspc node -f last.floating.local; \
+    fi

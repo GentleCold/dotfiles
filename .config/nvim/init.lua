@@ -26,7 +26,7 @@ end
 
 -- Customization for Pmenu
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#393d4e", fg = "NONE" })
-vim.api.nvim_set_hl(0, "Pmenu", { fg = "#C5CDD9", bg = "#181b20" })
+vim.api.nvim_set_hl(0, "Pmenu", { fg = "#C5CDD9", bg = "#1f2329" })
 
 -- vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#C5CDD9", fg = "NONE" })
 -- vim.api.nvim_set_hl(0, "Pmenu", { fg = "#C5CDD9", bg = "#24283b" })

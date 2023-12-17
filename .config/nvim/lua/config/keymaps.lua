@@ -3,6 +3,7 @@ local map = vim.keymap
 
 -- General
 map.set("i", "jk", "<ESC>")
+map.set("i", "<C-j><C-k>", "<ESC>")
 map.set({ "n", "v" }, "<leader>q", "<cmd>qa<cr>", { desc = "Quit all" })
 
 -- Better move

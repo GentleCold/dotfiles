@@ -7,9 +7,9 @@ return {
   },
   keys = {
     -- files
-    { "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>" },
-    { "<leader>fg", "<cmd>Telescope live_grep hidden=true<cr>" },
-    { "<leader>fw", "<cmd>Telescope grep_string hidden=true<cr>" },
+    { "<leader>ff", "<cmd>Telescope find_files<cr>" },
+    { "<leader>fg", "<cmd>Telescope live_grep<cr>" },
+    { "<leader>fw", "<cmd>Telescope grep_string<cr>" },
     { "<leader>fb", "<cmd>Telescope buffers<cr>" },
     { "<leader>fh", "<cmd>Telescope help_tags<cr>" },
 
@@ -18,7 +18,13 @@ return {
     -- { "gd", "<cmd>Telescope lsp_definitions<cr>" },
     -- { "gi", "<cmd>Telescope lsp_implementations<cr>" },
     -- { "gr", "<cmd>Telescope lsp_references<cr>" },
-    { "<leader>fT", "<cmd>Telescope diagnostics hidden=false<cr>" },
+    { "<leader>fT", "<cmd>Telescope diagnostics<cr>" },
+    { "<leader>fi", "<cmd>Telescope lsp_incoming_calls<cr>" },
+    { "<leader>fo", "<cmd>Telescope lsp_outgoing_calls<cr>" },
+
+    -- sessions
+    -- { "<leader>s", "<cmd>Telescope persisted<cr>", desc = "Find Session" },
+    -- { "<leader>s", "<cmd>Telescope possession list<cr>", desc = "Find Session" },
   },
   tag = "0.1.5",
   config = function()
@@ -62,6 +68,12 @@ return {
         },
       },
     })
+
+    -- Load extensions
+    require("telescope").load_extension("fzf")
+    -- require("telescope").load_extension("persisted")
+    -- require("telescope").load_extension("possession")
+
     local TelescopePrompt = {
       TelescopePromptBorder = {
         fg = "#C5CDD9",

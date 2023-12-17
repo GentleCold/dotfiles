@@ -34,11 +34,13 @@ return {
       require("barbar").setup(opts)
     end,
   },
-  {
-    "tiagovla/scope.nvim",
-    event = "BufEnter",
-    config = function()
-      require("scope").setup({})
-    end,
-  },
+  -- {
+  --   "tiagovla/scope.nvim",
+  --   event = "BufEnter",
+  --   config = function()
+  --     require("scope").setup({
+  --       restore_state = false,
+  --     })
+  --   end,
+  -- },
 }

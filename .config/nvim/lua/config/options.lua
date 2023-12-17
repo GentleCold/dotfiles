@@ -55,6 +55,8 @@ opt.foldlevel = 99
 opt.signcolumn = "yes"
 -- opt.numberwidth = 3
 opt.laststatus = 3
+opt.sessionoptions = "buffers,curdir,folds,globals,tabpages,winpos,winsize,localoptions"
+-- vim.g.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions,global"
 
 vim.g.markdown_folding = 1 -- enable markdown folding
 -- disable netrw at the very start of your init.lua
