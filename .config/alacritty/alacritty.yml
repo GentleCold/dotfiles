@@ -5,9 +5,9 @@ font:
   normal:
     family: Maple Mono NF
     style: Bold
-  # offset:
-  #  x: 0
-  #  y: 0
+  offset:
+   x: 0
+   y: 1
   # builtin_box_drawing: false
 
 # TokyoNight Alacritty Colors
@@ -87,5 +87,4 @@ window:
   # padding:
   #   x: 0
   #   y: 7
-
   dynamic_padding: true

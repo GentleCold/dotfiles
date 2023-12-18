@@ -6,6 +6,18 @@ map.set("i", "jk", "<ESC>")
 map.set("i", "<C-j><C-k>", "<ESC>")
 map.set({ "n", "v" }, "<leader>q", "<cmd>qa<cr>", { desc = "Quit all" })
 
+vim.g.diagnostics_visible = true
+function _G.toggle_diagnostics()
+  if vim.g.diagnostics_visible then
+    vim.g.diagnostics_visible = false
+    vim.diagnostic.disable()
+  else
+    vim.g.diagnostics_visible = true
+    vim.diagnostic.enable()
+  end
+end
+map.set("n", "<Leader>ad", ":call v:lua.toggle_diagnostics()<CR>", { silent = true, noremap = true })
+
 -- Better move
 map.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map.set({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })

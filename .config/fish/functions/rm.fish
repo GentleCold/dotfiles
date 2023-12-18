@@ -1,4 +1,4 @@
 # remove file to trash
-function trm
+function rm
     mv $argv ~/trash
 end
