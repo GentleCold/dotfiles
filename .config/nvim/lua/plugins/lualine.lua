@@ -8,7 +8,7 @@ return {
     return {
       options = {
         icons_enabled = true,
-        theme = "onedark",
+        theme = "catppuccin",
         component_separators = { left = "|", right = "|" },
         -- square
         section_separators = { left = "", right = "" },

@@ -1,28 +1,16 @@
 return {
   -- {
-  --   "olimorris/onedarkpro.nvim",
+  --   "navarasu/onedark.nvim",
   --   lazy = false,
   --   priority = 1000,
   --   config = function()
-  --     require("onedarkpro").setup({
-  --
+  --     require("onedark").setup({
+  --       style = "darker",
   --     })
-  --     -- somewhere in your config:
-  --     vim.cmd("colorscheme onedark Vivid")
-  --   end
-  -- }
+  --     require("onedark").load()
+  --   end,
+  -- },
 
-  {
-    "navarasu/onedark.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("onedark").setup({
-        style = "darker",
-      })
-      require("onedark").load()
-    end,
-  },
   -- {
   --   "folke/tokyonight.nvim",
   --   enable = false,
@@ -46,33 +34,57 @@ return {
   --     vim.cmd([[colorscheme tokyonight]])
   --   end,
   -- },
-}
 
--- _name = "tokyonight_storm",
--- bg = "#24283b",
--- bg_dark = "#1f2335",
--- bg_float = "#1f2335",
--- bg_highlight = "#292e42",
--- bg_popup = "#1f2335",
--- bg_search = "#3d59a1",
--- bg_sidebar = "#1f2335",
--- bg_statusline = "#1f2335",
--- bg_visual = "#2e3c64",
--- black = "#1d202f",
--- blue = "#7aa2f7",
--- blue0 = "#3d59a1",
--- blue1 = "#2ac3de",
--- blue2 = "#0db9d7",
--- blue5 = "#89ddff",
--- blue6 = "#b4f9f8",
--- blue7 = "#394b70",
--- border = "#1d202f",
--- border_highlight = "#29a4bd",
--- comment = "#565f89",
--- cyan = "#7dcfff",
--- dark3 = "#545c7e",
--- dark5 = "#737aa2",
--- delta = {
---   add = "#316172",
---   delete = "#763842"
--- },
+  {
+    "catppuccin/nvim",
+    lazy = false,
+    priority = 1000,
+    name = "catppuccin",
+    opts = {
+      term_colors = true,
+      integrations = {
+        aerial = true,
+        alpha = true,
+        barbar = true,
+        cmp = true,
+        dashboard = true,
+        flash = true,
+        gitsigns = true,
+        headlines = true,
+        illuminate = true,
+        indent_blankline = { enabled = true },
+        leap = true,
+        lsp_trouble = true,
+        mason = true,
+        markdown = true,
+        mini = true,
+        native_lsp = {
+          enabled = true,
+          underlines = {
+            errors = { "undercurl" },
+            hints = { "undercurl" },
+            warnings = { "undercurl" },
+            information = { "undercurl" },
+          },
+        },
+        navic = { enabled = true, custom_bg = "lualine" },
+        neotest = true,
+        neotree = true,
+        noice = true,
+        notify = true,
+        semantic_tokens = true,
+        telescope = {
+          enabled = true,
+          style = "nvchad",
+        },
+        treesitter = true,
+        treesitter_context = true,
+        which_key = true,
+      },
+    },
+    config = function(_, opts)
+      require("catppuccin").setup(opts)
+      vim.cmd.colorscheme("catppuccin-macchiato")
+    end,
+  },
+}

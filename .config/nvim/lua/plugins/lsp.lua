@@ -23,6 +23,7 @@ local language_servers = {
 
   -- python
   "pyright",
+  "python-lsp-server",
   "isort",
   "black",
   "flake8",
@@ -46,7 +47,7 @@ local linters = {
   c = { "clangtidy" },
   cpp = { "clangtidy" },
   markdown = { "alex" },
-  python = { "flake8" },
+  -- python = { "flake8" },
 }
 
 local lsp_setup = function()
@@ -94,6 +95,23 @@ local lsp_setup = function()
   require("lspconfig").pyright.setup({
     handlers = handlers,
     capabilities = capabilities,
+  })
+  require("lspconfig").pylsp.setup({
+    handlers = handlers,
+    capabilities = capabilities,
+    settings = {
+      pylsp = {
+        plugins = {
+          pycodestyle = {
+            ignore = { "W391" },
+            maxLineLength = 100,
+          },
+          pyflakes = {
+            enabled = false,
+          },
+        },
+      },
+    },
   })
   require("lspconfig").bashls.setup({
     handlers = handlers,
@@ -332,7 +350,7 @@ return {
         end, names)
 
         -- Run linters.
-        if #names > 0 then
+        if #names > 0 and vim.g.lint then
           lint.try_lint(names)
         end
       end

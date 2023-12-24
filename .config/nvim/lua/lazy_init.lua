@@ -18,11 +18,11 @@ require("lazy").setup("plugins", {
     lazy = true,
   },
   install = {
-    colorscheme = { "onedark" },
+    colorscheme = { "catppuccin" },
   },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  -- checker = { enabled = true }, -- automatically check for plugin updates
   ui = {
-    -- border = "single",
+    border = "single",
     icons = {
       task = " ",
     },

@@ -27,7 +27,6 @@ alias l="lsd"
 alias ls="lsd"
 alias c="clear"
 alias v="nvim"
-alias r="ranger"
 alias j="cd ~/notes && nvim"
 
 # pacman
@@ -61,7 +60,7 @@ alias te="trans :en"
 alias td="sh ~/.config/scripts/tidy.sh"
 
 # clean trash
-alias ct="rm -r ~/trash/*"
+# alias ct="rm -r ~/trash/*"
 
 # TokyoNight Color Palette
 set -l foreground c0caf5

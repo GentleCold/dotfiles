@@ -11,12 +11,26 @@ function _G.toggle_diagnostics()
   if vim.g.diagnostics_visible then
     vim.g.diagnostics_visible = false
     vim.diagnostic.disable()
+    print("Diagnostics disabled")
   else
     vim.g.diagnostics_visible = true
     vim.diagnostic.enable()
+    print("Diagnostics enabled")
   end
 end
-map.set("n", "<Leader>ad", ":call v:lua.toggle_diagnostics()<CR>", { silent = true, noremap = true })
+map.set("n", "<Leader>ad", ":call v:lua.toggle_diagnostics()<CR>", { noremap = true })
+
+vim.g.lint = true
+function _G.toggle_lint()
+  if vim.g.lint then
+    vim.g.lint = false
+    print("Linting disabled")
+  else
+    vim.g.lint = true
+    print("Linting enabled")
+  end
+end
+map.set("n", "<Leader>al", ":call v:lua.toggle_lint()<CR>", { noremap = true })
 
 -- Better move
 map.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })

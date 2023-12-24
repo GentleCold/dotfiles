@@ -1,13 +1,25 @@
+local function border(hl_name)
+  return {
+    { "┌", hl_name },
+    { "─", hl_name },
+    { "┐", hl_name },
+    { "│", hl_name },
+    { "┘", hl_name },
+    { "─", hl_name },
+    { "└", hl_name },
+    { "│", hl_name },
+  }
+end
 return {
   {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
     opts = {
       input = {
-        border = "single",
-        win_options = {
-          -- winhighlight = "Normal:CmpDoc",
-        },
+        border = border("NormalFLoat"),
+        -- win_options = {
+        --   winhighlight = "Normal:CmpDoc",
+        -- },
       },
       select = {
         telescope = {
