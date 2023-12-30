@@ -46,6 +46,8 @@ map.set("i", "<C-l>", "<Right>", { desc = "Right" })
 map.set("i", "<C-j>", "<Down>", { desc = "Down" })
 map.set("i", "<C-k>", "<Up>", { desc = "Up" })
 
+map.set("i", "<C-p>", "<esc>p")
+
 -- Move to window using the <ctrl> hjkl keys
 map.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
 map.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
@@ -124,3 +126,11 @@ map.set("n", "<leader>as", ":ASToggle<CR>", {})
 -- Accelerated jk
 map.set("n", "j", "<Plug>(accelerated_jk_gj)", {})
 map.set("n", "k", "<Plug>(accelerated_jk_gk)", {})
+
+-- Terminal Mappings
+map.set("t", "<C-w>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
+map.set("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
+map.set("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })
+map.set("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to upper window" })
+map.set("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
+map.set("t", "<C-\\>", "<cmd>close<cr>", { desc = "Hide Terminal" })

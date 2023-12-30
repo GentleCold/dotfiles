@@ -6,6 +6,9 @@ return {
   },
   config = function()
     require("symbols-outline").setup({
+      lsp_blacklist = {
+        "pylsp",
+      },
       symbols = {
         File = { icon = "", hl = "@text.uri" },
         Module = { icon = "", hl = "@namespace" },

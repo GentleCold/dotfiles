@@ -18,6 +18,10 @@ super + Escape
 super + b
   firefox
 
+# editor
+super + e
+	neovide
+
 #
 # bspwm hotkeys
 #

@@ -14,7 +14,7 @@ if vim.g.neovide then
   vim.g.neovide_cursor_vfx_mode = "pixiedust"
 
   -- font
-  vim.o.guifont = "Maple Mono SC NF:h9:b"
+  vim.o.guifont = "Maple Mono NF:h9"
   vim.opt.linespace = -1
   -- vim.g.neovide_transparency = 0.9
   vim.g.neovide_hide_mouse_when_typing = true
@@ -22,6 +22,11 @@ if vim.g.neovide then
 
   -- reduce performance when idle
   vim.g.neovide_refresh_rate_idle = 5
+
+  vim.g.neovide_padding_top = 10
+  vim.g.neovide_padding_bottom = 0
+  vim.g.neovide_padding_right = 0
+  vim.g.neovide_padding_left = 0
 end
 
 -- Customization for Pmenu

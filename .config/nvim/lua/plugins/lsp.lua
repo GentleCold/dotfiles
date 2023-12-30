@@ -44,8 +44,8 @@ local formatters = {
 -- NOTE: 3. linters
 local linters = {
   fish = { "fish" },
-  c = { "clangtidy" },
-  cpp = { "clangtidy" },
+  -- c = { "clangtidy" },
+  -- cpp = { "clangtidy" },
   markdown = { "alex" },
   -- python = { "flake8" },
 }
@@ -96,23 +96,23 @@ local lsp_setup = function()
     handlers = handlers,
     capabilities = capabilities,
   })
-  require("lspconfig").pylsp.setup({
-    handlers = handlers,
-    capabilities = capabilities,
-    settings = {
-      pylsp = {
-        plugins = {
-          pycodestyle = {
-            ignore = { "W391" },
-            maxLineLength = 100,
-          },
-          pyflakes = {
-            enabled = false,
-          },
-        },
-      },
-    },
-  })
+  -- require("lspconfig").pylsp.setup({
+  --   -- handlers = handlers,
+  --   -- capabilities = capabilities,
+  --   settings = {
+  --     pylsp = {
+  --       plugins = {
+  --         pycodestyle = {
+  --           ignore = { "W391", "E203" },
+  --           maxLineLength = 100,
+  --         },
+  --         pyflakes = {
+  --           enabled = false,
+  --         },
+  --       },
+  --     },
+  --   },
+  -- })
   require("lspconfig").bashls.setup({
     handlers = handlers,
     capabilities = capabilities,
@@ -173,7 +173,7 @@ return {
           vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
           vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
           vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-          vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+          -- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
           vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
           vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
           vim.keymap.set("n", "<space>wl", function()

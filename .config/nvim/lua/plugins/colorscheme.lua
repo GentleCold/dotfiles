@@ -43,6 +43,11 @@ return {
     opts = {
       term_colors = true,
       integrations = {
+        symbols_outline = true,
+        illuminate = {
+          enabled = false,
+          lsp = false,
+        },
         aerial = true,
         alpha = true,
         barbar = true,
@@ -51,7 +56,7 @@ return {
         flash = true,
         gitsigns = true,
         headlines = true,
-        illuminate = true,
+        -- illuminate = true,
         indent_blankline = { enabled = true },
         leap = true,
         lsp_trouble = true,
