@@ -41,6 +41,7 @@ return {
     priority = 1000,
     name = "catppuccin",
     opts = {
+      -- transparent_background = true,
       term_colors = true,
       integrations = {
         symbols_outline = true,
