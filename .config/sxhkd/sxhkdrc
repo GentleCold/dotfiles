@@ -7,7 +7,7 @@ super + Return
 	alacritty
 
 # program launcher
-super + @space
+alt + @space
 	rofi -show drun
 
 # make sxhkd reload its configuration files:
@@ -184,3 +184,7 @@ super + u
     else \
         bspc node -f last.floating.local; \
     fi
+
+# Cycle the next/previous window in the current workspace
+alt + {_,shift + }Tab
+	bspc node -f {next,prev}.local.!hidden.window

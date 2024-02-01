@@ -19,6 +19,12 @@ Here are some details about my setup:
 
 My awesome neovim configurations, built from zero!
 
+<img src="./imgs/image-20240201174932.png"/>
+
+<img src="./imgs/image-20240201174958.png"/>
+
+<img src="./imgs/image-20240201175050.png"/>
+
 ## Install
 
 Edit dotfiles var in `install.sh`

@@ -97,3 +97,6 @@ alias td="sh ~/.config/scripts/tidy.sh"
 # set -g fish_pager_color_description $comment
 # set -g fish_pager_color_selected_background --background=$selection
 #
+
+# Created by `pipx` on 2024-01-17 17:57:09
+set PATH $PATH /home/gentle/.local/bin
