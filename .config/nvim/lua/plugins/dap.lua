@@ -99,6 +99,12 @@ return {
         }
       end
 
+      dap.adapters.cppdbg = {
+        id = "cppdbg",
+        type = "executable",
+        command = "/home/gentle/downloads/tmp/extension/debugAdapters/bin/OpenDebugAD7",
+      }
+
       dap.configurations.python = {
         {
           -- The first three options are required by nvim-dap
@@ -124,17 +130,53 @@ return {
         },
       }
 
+      local pickers = require("telescope.pickers")
+      local finders = require("telescope.finders")
+      local conf = require("telescope.config").values
+      local actions = require("telescope.actions")
+      local action_state = require("telescope.actions.state")
+
       for _, lang in ipairs({ "c", "cpp" }) do
         dap.configurations[lang] = {
           {
-            type = "codelldb",
+            -- type = "codelldb",
+            type = "cppdbg",
             request = "launch",
             name = "Launch file",
+
+            -- program = function()
+            --   return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+            -- end,
             program = function()
-              return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+              return coroutine.create(function(coro)
+                local opts = {}
+                pickers
+                  .new(opts, {
+                    prompt_title = "Path to executable",
+                    sorter = conf.generic_sorter(opts),
+                    finder = finders.new_oneshot_job({ "fd", "--no-hidden", "--no-ignore-vcs", "--type", "x" }, {}),
+                    attach_mappings = function(buffer_number)
+                      actions.select_default:replace(function()
+                        actions.close(buffer_number)
+                        coroutine.resume(coro, action_state.get_selected_entry()[1])
+                      end)
+                      return true
+                    end,
+                  })
+                  :find()
+              end)
             end,
+
             cwd = "${workspaceFolder}",
-            stopOnEntry = false,
+            -- stopOnEntry = false,
+            stopOnEntry = true,
+            setupCommands = {
+              {
+                text = "-enable-pretty-printing",
+                description = "enable pretty printing",
+                ignoreFailures = false,
+              },
+            },
           },
         }
       end

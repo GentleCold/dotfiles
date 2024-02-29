@@ -134,3 +134,10 @@ map.set("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })
 map.set("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to upper window" })
 map.set("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
 map.set("t", "<C-\\>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+
+-- Leetcode
+map.set("n", "<leader>li", "<cmd>Leet info<cr>")
+map.set("n", "<leader>lc", "<cmd>Leet console<cr>")
+map.set("n", "<leader>ld", "<cmd>Leet desc<cr>")
+map.set("n", "<leader>lr", "<cmd>Leet run<cr>")
+map.set("n", "<leader>ls", "<cmd>Leet submit<cr>")
