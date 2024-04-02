@@ -27,6 +27,9 @@ local language_servers = {
   "isort",
   "black",
   "flake8",
+
+  -- go
+  "gopls",
 }
 
 -- NOTE: 2. formatters
@@ -39,6 +42,7 @@ local formatters = {
   cpp = { "clang_format" },
   cmake = { "cmake_format" },
   sh = { "shfmt" },
+  go = { "gofmt" },
 }
 
 -- NOTE: 3. linters
@@ -93,6 +97,10 @@ local lsp_setup = function()
     capabilities = capabilities,
   })
   require("lspconfig").pyright.setup({
+    handlers = handlers,
+    capabilities = capabilities,
+  })
+  require("lspconfig").gopls.setup({
     handlers = handlers,
     capabilities = capabilities,
   })
@@ -285,7 +293,7 @@ return {
       vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
     end,
     config = function(_, opts)
-      -- vim.g.disable_autoformat = true
+      vim.g.disable_autoformat = true
 
       require("conform").setup(opts)
       vim.api.nvim_create_user_command("FormatToggle", function(args)

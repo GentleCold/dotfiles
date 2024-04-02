@@ -34,6 +34,7 @@ return {
         "theHamsta/nvim-dap-virtual-text",
         opts = {},
       },
+      { "nvim-neotest/nvim-nio" },
     },
     -- stylua: ignore
     keys = {
@@ -58,6 +59,7 @@ return {
     config = function()
       local dap = require("dap")
 
+      -- NOTE: PYTHON
       dap.adapters.python = function(cb, config)
         if config.request == "attach" then
           ---@diagnostic disable-next-line: undefined-field
@@ -84,27 +86,6 @@ return {
         end
       end
 
-      if not dap.adapters["codelldb"] then
-        require("dap").adapters["codelldb"] = {
-          type = "server",
-          port = "${port}",
-          executable = {
-            command = require("mason-registry").get_package("codelldb"):get_install_path()
-              .. "/extension/adapter/codelldb",
-            args = {
-              "--port",
-              "${port}",
-            },
-          },
-        }
-      end
-
-      dap.adapters.cppdbg = {
-        id = "cppdbg",
-        type = "executable",
-        command = "/home/gentle/downloads/tmp/extension/debugAdapters/bin/OpenDebugAD7",
-      }
-
       dap.configurations.python = {
         {
           -- The first three options are required by nvim-dap
@@ -128,6 +109,28 @@ return {
             return os.getenv("VIRTUAL_ENV") .. "/bin/python"
           end,
         },
+      }
+
+      -- NOTE: C/CPP
+      if not dap.adapters["codelldb"] then
+        require("dap").adapters["codelldb"] = {
+          type = "server",
+          port = "${port}",
+          executable = {
+            command = require("mason-registry").get_package("codelldb"):get_install_path()
+              .. "/extension/adapter/codelldb",
+            args = {
+              "--port",
+              "${port}",
+            },
+          },
+        }
+      end
+
+      dap.adapters.cppdbg = {
+        id = "cppdbg",
+        type = "executable",
+        command = "/home/gentle/downloads/tmp/extension/debugAdapters/bin/OpenDebugAD7",
       }
 
       local pickers = require("telescope.pickers")
@@ -167,6 +170,16 @@ return {
               end)
             end,
 
+            args = function()
+              local str = vim.fn.input("Args: ")
+              local list = {}
+
+              for word in string.gmatch(str, "%S+") do
+                table.insert(list, word)
+              end
+              return list
+            end,
+
             cwd = "${workspaceFolder}",
             -- stopOnEntry = false,
             stopOnEntry = true,
@@ -180,6 +193,35 @@ return {
           },
         }
       end
+
+      -- NOTE: GOLAND
+      dap.adapters.delve = {
+        type = "server",
+        port = "${port}",
+        executable = {
+          command = "dlv",
+          args = { "dap", "-l", "127.0.0.1:${port}" },
+        },
+      }
+
+      -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
+      dap.configurations.go = {
+        {
+          type = "delve",
+          name = "Debug",
+          request = "launch",
+          program = "${file}",
+          args = function()
+            local str = vim.fn.input("Args: ")
+            local list = {}
+
+            for word in string.gmatch(str, "%S+") do
+              table.insert(list, word)
+            end
+            return list
+          end,
+        },
+      }
     end,
   },
 }

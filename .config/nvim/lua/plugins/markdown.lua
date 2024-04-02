@@ -30,7 +30,7 @@ return {
           local_path = "/imgs/",
         },
         ft = {
-          markdown = '<p align="center">\n<img src="$IMG$" width="50%"/>\n</p>',
+          markdown = '<p align="center">\n<img src="$IMG$"/>\n</p>',
         },
       })
     end,

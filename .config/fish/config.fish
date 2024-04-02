@@ -11,6 +11,9 @@ starship init fish | source
 export EDITOR=nvim
 export QT_QPA_PLATFORMTHEME=qt5ct
 
+# goland
+export GOPATH=$HOME/.local/state/go
+
 # clipmenu
 export CM_LAUNCHER=rofi
 

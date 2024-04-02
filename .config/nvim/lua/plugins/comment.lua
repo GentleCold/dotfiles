@@ -29,6 +29,9 @@ return {
     config = function()
       require("todo-comments").setup({
         signs = false,
+        highlight = {
+          pattern = [[\w*(KEYWORDS)\w*]],
+        },
         search = {
           command = "rg",
           args = {

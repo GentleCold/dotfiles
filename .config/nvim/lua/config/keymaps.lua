@@ -73,9 +73,21 @@ map.set("n", "<S-h>", "<cmd>BufferPrevious<cr>", { desc = "Prev buffer" })
 map.set("n", "<S-l>", "<cmd>BufferNext<cr>", { desc = "Next buffer" })
 map.set("n", "<leader>bh", "<Cmd>BufferMovePrevious<CR>")
 map.set("n", "<leader>bl", "<Cmd>BufferMoveNext<CR>")
-map.set("n", "<leader>bd", "<cmd>BufferClose<cr>", { desc = "Delete buffer" })
+map.set("n", "<A-w>", "<cmd>BufferClose<cr>", { desc = "Delete buffer" })
 map.set("n", "<leader>bp", "<cmd>BufferPin<cr>", { desc = "Pin buffer" })
 map.set("n", "<leader>bD", "<cmd>BufferCloseAllButPinned<cr>", { desc = "Delete all buffers" })
+
+-- Goto buffer in position...
+map.set("n", "<A-1>", "<Cmd>BufferGoto 1<CR>", { noremap = true, silent = true })
+map.set("n", "<A-2>", "<Cmd>BufferGoto 2<CR>", { noremap = true, silent = true })
+map.set("n", "<A-3>", "<Cmd>BufferGoto 3<CR>", { noremap = true, silent = true })
+map.set("n", "<A-4>", "<Cmd>BufferGoto 4<CR>", { noremap = true, silent = true })
+map.set("n", "<A-5>", "<Cmd>BufferGoto 5<CR>", { noremap = true, silent = true })
+map.set("n", "<A-6>", "<Cmd>BufferGoto 6<CR>", { noremap = true, silent = true })
+map.set("n", "<A-7>", "<Cmd>BufferGoto 7<CR>", { noremap = true, silent = true })
+map.set("n", "<A-8>", "<Cmd>BufferGoto 8<CR>", { noremap = true, silent = true })
+map.set("n", "<A-9>", "<Cmd>BufferGoto 9<CR>", { noremap = true, silent = true })
+map.set("n", "<A-0>", "<Cmd>BufferLast<CR>", { noremap = true, silent = true })
 
 -- Diagnostic
 local diagnostic_goto = function(next, severity)
