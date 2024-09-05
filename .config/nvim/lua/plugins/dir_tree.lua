@@ -12,6 +12,10 @@ return {
     -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
   },
   config = function()
+    vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
+    vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
+    vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
+    vim.fn.sign_define("DiagnosticSignHint", { text = " ", texthl = "DiagnosticSignHint" })
     require("neo-tree").setup({
       popup_border_style = "single",
       disable_statusline = true,
@@ -31,7 +35,7 @@ return {
             ["l"] = "into",
             ["<bs>"] = "",
             ["h"] = "navigate_up",
-            ["g"] = function(state)
+            ["e"] = function(state)
               local node = state.tree:get_node()
               if node.type == "directory" then
                 require("neo-tree.sources.filesystem").toggle_directory(state, node)

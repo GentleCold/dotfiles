@@ -13,6 +13,8 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 
 # goland
 export GOPATH=$HOME/.local/state/go
+export HADOOP_HOME=/home/gentle/projects/homeworks/distribute_system/hadoop-2.10.1
+export HADOOP_CONF_DIR=/home/gentle/projects/homeworks/distribute_system/hadoop-2.10.1/etc/hadoop
 
 # clipmenu
 export CM_LAUNCHER=rofi
@@ -25,12 +27,19 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 # set -Ux CONDA_AUTO_ACTIVATE_BASE true
 # set -x PATH /opt/anaconda/condabin $PATH
 
+# export PATH="$PATH:/home/gentle/.local/bin/"
+
+alias hdfs="/home/gentle/projects/homeworks/distribute_system/hadoop-2.10.1/bin/hdfs"
+alias change_nvidia="sudo mv /usr/share/vulkan/nvidia_icd.json /usr/share/vulkan/icd.d/ && optimus-manager --switch nvidia"
+alias change_integrated="sudo mv /usr/share/vulkan/icd.d/nvidia_icd.json /usr/share/vulkan/ && optimus-manager --switch integrated"
+
 # common
 alias l="lsd"
 alias ls="lsd"
 alias c="clear"
 alias v="nvim"
 alias j="cd ~/notes && nvim"
+alias r="ranger"
 
 # pacman
 alias i="sudo pacman -S"
