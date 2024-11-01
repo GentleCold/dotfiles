@@ -4,7 +4,7 @@ pgrep -x sxhkd >/dev/null || sxhkd &
 
 bspc monitor -d I II III IV V VI
 
-bspc config border_width 5
+bspc config border_width 0
 bspc config window_gap 10
 
 bspc config split_ratio 0.52
@@ -38,7 +38,7 @@ dunst &
 # udiskie &
 
 # picom
-picom &
+picom --no-frame-pacing &
 
 # disable touchpad
 xinput set-prop "ELAN0662:00 04F3:30BC Touchpad" "Device Enabled" 0

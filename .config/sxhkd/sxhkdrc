@@ -16,7 +16,7 @@ super + Escape
 
 # browser
 super + b
-  firefox
+  brave --password-store=basic
 
 # editor
 super + e
