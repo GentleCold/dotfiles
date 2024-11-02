@@ -9,10 +9,10 @@
 
 /*****----- Global Properties -----*****/
 * {
-    background:     #2a273f;
-    background-alt: #393552;
-    foreground:     #e0def4;
-    selected:       #3e8fb0;
+    background:     #24273a;
+    background-alt: #363a4f;
+    foreground:     #cad3f5;
+    selected:       #8aadf4;
 
     font: "Maple Mono SC NF Bold 12";
 }

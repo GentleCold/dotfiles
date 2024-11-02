@@ -40,3 +40,15 @@ You need more efforts to configurations before using them completely
 <img src="./imgs/image-20231231014446.png"/>
 
 <img src="./imgs/image-20231231014642.png"/>
+
+# V-2.0.0
+
+now we get the latest preview here:
+
+<p align="center">
+    <img src="./imgs/image-20241103025743.png"/>
+</p>
+
+<p align="center">
+    <img src="./imgs/image-20241103025848.png"/>
+</p>

@@ -179,12 +179,14 @@ super + r
 
 # focus a floating window
 super + u
-    if [ "$(bspc query -N -n focused.floating)" ]; then \
-        bspc node -f last.tiled.local; \
-    else \
-        bspc node -f last.floating.local; \
-    fi
+  sh ~/.config/scripts/focus_float.sh
 
 # Cycle the next/previous window in the current workspace
 alt + {_,shift + }Tab
 	bspc node -f {next,prev}.local.!hidden.window
+
+super + p
+	bspc node -g sticky
+
+super + q
+  sh ~/.config/scripts/toggle_border.sh
