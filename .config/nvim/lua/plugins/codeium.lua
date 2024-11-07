@@ -1,7 +1,9 @@
 return {
   {
     "Exafunction/codeium.vim",
-    event = "BufReadPre",
+    -- disabled by default because it's not usefull and take up sources
+    enabled = "false",
+    -- event = "BufReadPre",
     version = "1.8.37",
     config = function()
       vim.g.codeium_disable_bindings = 1

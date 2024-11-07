@@ -51,4 +51,15 @@ return {
       -- vim.api.nvim_set_keymap("n", "<leader>fm", "<cmd>TodoTelescope<cr>", { noremap = true })
     end,
   },
+  {
+    "danymat/neogen",
+    event = "VeryLazy",
+    config = function()
+      local opts = { noremap = true, silent = true }
+      require('neogen').setup({ snippet_engine = "luasnip" })
+      vim.api.nvim_set_keymap("n", "<Leader>cm", ":lua require('neogen').generate()<CR>", opts)
+    end,
+    -- Uncomment next line if you want to follow only stable versions
+    -- version = "*"
+  },
 }

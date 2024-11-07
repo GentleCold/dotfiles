@@ -5,6 +5,8 @@
 # terminal emulator
 super + Return
 	alacritty
+super + shift + Return
+  bspc rule -a \* -o state=floating && alacritty
 
 # program launcher
 alt + @space
@@ -17,10 +19,14 @@ super + Escape
 # browser
 super + b
   brave --password-store=basic
+super + shift + b
+  bspc rule -a \* -o state=floating && brave --password-store=basic
 
 # editor
 super + e
 	neovide
+super + shift + e
+  bspc rule -a \* -o state=floating && neovide
 
 #
 # bspwm hotkeys
@@ -51,7 +57,7 @@ super + g
 #
 
 # set the window state
-super + {t,shift + t,s,f}
+super + {n,shift + n,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags

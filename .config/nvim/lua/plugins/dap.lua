@@ -57,8 +57,8 @@ return {
       { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
     },
     config = function()
+      vim.fn.sign_define("DapBreakpoint", {text="", texthl="DiagnosticSignError", numhl=""})
       local dap = require("dap")
-
       -- NOTE: PYTHON
       dap.adapters.python = function(cb, config)
         if config.request == "attach" then
@@ -111,7 +111,7 @@ return {
         },
       }
 
-      -- NOTE: C/CPP
+      -- NOTE: C/CPP/RUST
       if not dap.adapters["codelldb"] then
         require("dap").adapters["codelldb"] = {
           type = "server",
@@ -139,7 +139,7 @@ return {
       local actions = require("telescope.actions")
       local action_state = require("telescope.actions.state")
 
-      for _, lang in ipairs({ "c", "cpp" }) do
+      for _, lang in ipairs({ "c", "cpp", "rust" }) do
         dap.configurations[lang] = {
           {
             -- type = "codelldb",

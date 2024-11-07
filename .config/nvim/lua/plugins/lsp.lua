@@ -31,6 +31,9 @@ local language_servers = {
   -- go
   "gopls",
 
+  -- rust
+  "rust-analyzer",
+
   -- solidity
   -- "solidity",
 }
@@ -111,6 +114,10 @@ local lsp_setup = function()
     handlers = handlers,
     capabilities = capabilities,
   })
+  require("lspconfig").rust_analyzer.setup({
+    handlers = handlers,
+    capabilities = capabilities,
+  })
   -- require("lspconfig").pylsp.setup({
   --   -- handlers = handlers,
   --   -- capabilities = capabilities,
@@ -143,7 +150,7 @@ return {
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
-    keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
+    -- keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
     build = ":MasonUpdate",
     opts = {
       ensure_installed = language_servers,

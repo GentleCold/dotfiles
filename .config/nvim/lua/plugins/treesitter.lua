@@ -54,6 +54,7 @@ return {
         "go",
         "c",
         "cpp",
+        "rust",
         "css",
         "diff",
         "html",

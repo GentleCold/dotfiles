@@ -71,6 +71,9 @@ alias te="trans :en"
 # tidy downloads
 alias td="sh ~/.config/scripts/tidy.sh"
 
+# generate random password
+alias gen="sh ~/.config/scripts/gen_password.sh"
+
 # clean trash
 # alias ct="rm -r ~/trash/*"
 

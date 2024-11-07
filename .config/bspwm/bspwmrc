@@ -14,6 +14,14 @@ bspc config gapless_monocle true
 bspc rule -a Screenkey manage=off
 bspc rule -a copyq state=floating rectangle=800x600+0+0 center=on 
 
+bspc rule -a neovide rectangle=800x300+1114+0 state=floating
+bspc rule -a Alacritty rectangle=800x300+1114+0 state=floating
+bspc rule -a Brave-browser rectangle=800x300+1114+0 state=floating
+
+bspc rule -a neovide state=tiled
+bspc rule -a Alacritty state=tiled
+bspc rule -a Brave-browser state=tiled
+
 # mouse action
 bspc config pointer_action1 move
 bspc config pointer_action2 resize_side
