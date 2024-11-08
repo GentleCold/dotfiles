@@ -39,7 +39,7 @@ alias ls="lsd"
 alias c="clear"
 alias v="nvim"
 alias j="cd ~/notes && nvim"
-alias r="ranger"
+# alias r="ranger"
 
 # pacman
 alias i="sudo pacman -S"
@@ -75,7 +75,7 @@ alias td="sh ~/.config/scripts/tidy.sh"
 alias gen="sh ~/.config/scripts/gen_password.sh"
 
 # yazi shell wrapper
-function y
+function r
 	set tmp (mktemp -t "yazi-cwd.XXXXXX")
 	yazi $argv --cwd-file="$tmp"
 	if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]

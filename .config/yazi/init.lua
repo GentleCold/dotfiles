@@ -34,7 +34,7 @@ end, 500, Status.RIGHT)
 
 -- ~/.config/yazi/init.lua
 require("bookmarks"):setup({
-	save_last_directory = false, -- DEPRECATED - will be removed in the future. Use `last_directory`
+	save_last_directory = true, -- DEPRECATED - will be removed in the future. Use `last_directory`
 	last_directory = { enable = true, persist = true },
 	persist = "all",
 	desc_format = "full",

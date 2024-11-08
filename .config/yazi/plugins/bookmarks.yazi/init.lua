@@ -103,7 +103,7 @@ local _save_last_directory = ya.sync(function(state, persist)
 		end
 
 		state.curr_dir = {
-			on = "'",
+			on = "`",
 			desc = _generate_description(file),
 			path = tostring(file.url),
 			is_parent = file.is_parent,

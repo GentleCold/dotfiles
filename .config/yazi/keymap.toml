@@ -15,8 +15,8 @@ desc = "Smart filter"
 
 [[manager.prepend_keymap]]
 on = ["C"]
-run = "plugin ouch --args=zip"
-desc = "Compress with ouch"
+run  = "plugin compress"
+desc = "Archive selected files"
 
 [[manager.prepend_keymap]]
 on = [ "m" ]
@@ -49,7 +49,7 @@ keymap = [
 	{ on = "<C-[>", run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
 	{ on = "q",     run = "quit",               desc = "Exit the process" },
 	{ on = "Q",     run = "quit --no-cwd-file", desc = "Exit the process without writing cwd-file" },
-	{ on = "<C-c>", run = "close",              desc = "Close the current tab, or quit if it is last tab" },
+	{ on = "<C-c>", run = "escape --visual",    desc = "Close the current tab, or quit if it is last tab" },
 	{ on = "<C-z>", run = "suspend",            desc = "Suspend the process" },
 
 	# Hopping

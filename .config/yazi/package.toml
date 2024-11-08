@@ -1,5 +1,5 @@
 [plugin]
-deps = [{ use = "yazi-rs/plugins:full-border", rev = "4adba4e" }, { use = "yazi-rs/plugins:smart-filter", rev = "4adba4e" }, { use = "Ape/smart-enter", rev = "7bf44b7" }, { use = "dedukun/bookmarks", rev = "600f87c" }]
+deps = [{ use = "yazi-rs/plugins:full-border", rev = "4adba4e" }, { use = "yazi-rs/plugins:smart-filter", rev = "4adba4e" }, { use = "Ape/smart-enter", rev = "7bf44b7" }, { use = "dedukun/bookmarks", rev = "600f87c" }, { use = "KKV9/compress", rev = "60b24af" }]
 
 [flavor]
 deps = []
