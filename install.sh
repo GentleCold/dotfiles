@@ -19,6 +19,7 @@ configs=(
     sxhkd
     scripts 
     tmux
+    yazi
 )
 
 for file in "${configs[@]}"; do

@@ -24,9 +24,9 @@ super + shift + b
 
 # editor
 super + e
-	neovide
+	alacritty -e nvim
 super + shift + e
-  bspc rule -a \* -o state=floating && neovide
+  bspc rule -a \* -o state=floating && alacritty -e nvim
 
 #
 # bspwm hotkeys

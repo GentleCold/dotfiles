@@ -27,6 +27,9 @@ if vim.g.neovide then
   vim.g.neovide_padding_bottom = 0
   vim.g.neovide_padding_right = 0
   vim.g.neovide_padding_left = 0
+
+  -- animation length
+  vim.g.neovide_position_animation_length = 0
 end
 
 -- Customization for Pmenu
