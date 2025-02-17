@@ -30,6 +30,8 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 # export PATH="$PATH:/home/gentle/.local/bin/"
 
 alias hdfs="/home/gentle/projects/homeworks/distribute_system/hadoop-2.10.1/bin/hdfs"
+alias mv_nvidia="sudo mv /usr/share/vulkan/nvidia_icd.json /usr/share/vulkan/icd.d/"
+alias mv_integrated="sudo mv /usr/share/vulkan/icd.d/nvidia_icd.json /usr/share/vulkan/"
 alias change_nvidia="sudo mv /usr/share/vulkan/nvidia_icd.json /usr/share/vulkan/icd.d/ && optimus-manager --switch nvidia"
 alias change_integrated="sudo mv /usr/share/vulkan/icd.d/nvidia_icd.json /usr/share/vulkan/ && optimus-manager --switch integrated"
 

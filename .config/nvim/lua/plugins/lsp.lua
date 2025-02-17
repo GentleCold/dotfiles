@@ -14,7 +14,7 @@ local language_servers = {
   "lua-language-server",
 
   -- c/cpp
-  "clangd",
+  -- "clangd",
   "clang-format",
 
   -- cmake
@@ -49,6 +49,7 @@ local formatters = {
   cmake = { "cmake_format" },
   sh = { "shfmt" },
   go = { "gofmt" },
+  rust = { "rustfmt" },
 }
 
 -- NOTE: 3. linters
