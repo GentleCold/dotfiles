@@ -6,7 +6,7 @@ configuration {
     window-format: " [{w}]\t\t{t:0}";
     sidebar-mode: true;
     display-run: "";
-    display-drun: "";
+    display-drun: " ";
     display-window: "";
     show-match: true;
     kb-mode-previous: "Alt+h,Control+Shift+Tab";
